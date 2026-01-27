@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Transaksi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style-kelipatan4.css') }}">
+</head>
+<body>
+    <div class="div">
+        <h1>Edit Transaksi {{ data.id_transaksi }}</h1>
+        <form action="" method="post">
+            <label>Masukan ID Pasien</label>
+            <select name="DimasIDPasien" required>
+                <option value="" disabled>Pilih Pasien</option>
+                {% for p in pasien_list %}
+                <option value="{{ p.id_pasien }}" {% if p.id_pasien==data.id_pasien %}selected{% endif %}>{{ p.id_pasien }} - {{ p.nama }}</option>
+                {% endfor %}
+            </select><br><br>
+
+            <label>ID Rawat</label>
+            <select name="DimasIDRawat" required>
+                <option value="" disabled>Pilih Rawat</option>
+                {% for r in rawat_list %}
+                <option value="{{ r.id_rawat }}" {% if r.id_rawat==data.id_rawat %}selected{% endif %}>{{ r.id_rawat }} ({{ r.id_pasien }})</option>
+                {% endfor %}
+            </select><br><br>
+
+            <label>Total Biaya</label>
+            <input type="text" name="DimasTotalBiaya" value="{{ data.total_biaya }}" required><br><br>
+
+            <label>Status Pembayaran</label>
+            <select name="DimasStatusPembayaran" required>
+                <option value="Lunas" {% if data.status_pembayaran=='Lunas' %}selected{% endif %}>Lunas</option>
+                <option value="Belum Lunas" {% if data.status_pembayaran=='Belum Lunas' %}selected{% endif %}>Belum Lunas</option>
+            </select><br><br>
+
+            <label>Tanggal Transaksi</label>
+            <input type="date" name="DimasTanggalTransaksi" value="{{ data.tanggal_transaksi }}" required><br><br>
+
+            <input type="submit" value="Simpan">
+            <a href="{{ url_for('index') }}"><input type="submit" value="Batal"></a>
+        </form>
+    </div>
+</body>
+</html>
