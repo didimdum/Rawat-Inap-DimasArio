@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>koneksi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style-kelipatan4.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+</head>
+<body>    
+    {% if berhasil %}
+    <script>
+        alert("Data berhasil diubah");
+    </script>
+    {% endif %}
+    <div id="particles-js" style="position:fixed; width:100%; height:100%; z-index:-1;"></div>
+    <div class="div">
+        <center><h2>Daftar Data Transaksi</h2></center>
+        <table>
+            <tr>
+                <th>Id Transaksi</th>
+                <th>Nama Pasien</th>
+                <th>ID rawat</th>
+                <th>total biaya</th>
+                <th>tgl masuk</th>
+                <th>tgl keluar</th>
+                <th>Status Pembayaran</th>
+                <th>tanggal</th>
+                <th colspan="3">aksi</th>
+            </tr>
+            
+            {% if transaksi %}
+                {% for data in transaksi %}
+                <tr>
+                    <td>{{ data.id_transaksi }}</td>
+                    <td>{{ data.nama_pasien or data.id_pasien }}</td>
+                    <td>{{ data.id_rawat }}</td>
+                    <td>{{ data.total_biaya }}</td>
+                    <td>{{ data.tgl_masuk }}</td>
+                    <td>{{ data.tgl_keluar }}</td>
+                    <td>{{ data.status_pembayaran }}</td>
+                    <td>{{ data.tanggal_transaksi }}</td>
+                    <td>
+                        <a href="/edit-transaksi/{{ data.id_transaksi }}"><input type="submit" value="Edit"></a>
+                    </td>
+                    <td>
+                        <form action="/hapus-transaksi/{{ data.id_transaksi }}" method="post" onsubmit="return confirm('Hapus transaksi {{ data.id_transaksi }}?');">
+                            <input type="submit" value="Hapus">
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr><td colspan="9" style="text-align: center;">Data Tidak Ditemukan</td></tr>
+            {% endif %}
+        </table><br>
+        <center>
+            <a href='/cetak2' target="_blank"><input type="submit" value="Cetak PDF"></a><br><br>
+        <form action="/form-mapel">
+            <input type="submit" value="Input data Transaksi">
+        </form> <br><br>
+        <form action="/index-pasien">
+            <input type="submit" value="Lihat data Pasien">
+        </form>
+        </center>
+    </div>
+    <script>
+    particlesJS('particles-js', {
+      "particles": {
+        "number": { "value": 80, "density": { "enable": true, "value_area": 750 } },
+        "color": { "value": "#ffffff" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.5 },
+        "size": { "value": 2, "random": true },
+        "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 },
+        "move": { "enable": true, "speed": 7 }
+      }
+    });
+    </script>
+</body>
+</html>
