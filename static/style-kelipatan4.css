@@ -8,7 +8,10 @@ body {
     opacity: 1;
     transition: opacity 0.5s ease-in-out;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 27ac00dccb201bf0a3a70a866a23b14206798e6d
 body.fade-out {
     opacity: 0;
 }
@@ -31,8 +34,11 @@ h3 {
 
 table {
     width: 100%;
+<<<<<<< HEAD
     table-layout: fixed;
     border-spacing: 0 10px;
+=======
+>>>>>>> 27ac00dccb201bf0a3a70a866a23b14206798e6d
 }
 
 label {
@@ -42,7 +48,10 @@ label {
     color: #444;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 27ac00dccb201bf0a3a70a866a23b14206798e6d
 select, input[type='number'] {
     width: 100%;
     padding: 8px;
@@ -124,12 +133,17 @@ table {
 
 td {
     vertical-align: top;
+<<<<<<< HEAD
     padding: 3px 5px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 
+=======
+    padding: 5px;
+}
+>>>>>>> 27ac00dccb201bf0a3a70a866a23b14206798e6d
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(to top, #33ccff 0%, #666166 100%);
@@ -275,9 +289,13 @@ td {
 .btn-hapus:hover {
     background-color: #ff0000;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+<<<<<<< HEAD
 }
 
 
 
 
 /* --- Button Styling --- */
+=======
+}
+>>>>>>> 27ac00dccb201bf0a3a70a866a23b14206798e6d

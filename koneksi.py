@@ -34,7 +34,11 @@ def id_otomatis(prefix, nama_tabel, kolom_id):
         id_baru = f"{prefix}{str(no).zfill(3)}"
         return id_baru
     except Exception as e:
+<<<<<<< HEAD
         print(f"error: {e}")
+=======
+        print(f"Error generating ID: {e}")
+>>>>>>> 27ac00dccb201bf0a3a70a866a23b14206798e6d
         return None
 #
 @app.route('/')
@@ -144,7 +148,11 @@ def form_mapel():
     pasien_list = cursor.fetchall()
     cursor.execute("SELECT id_rawat, id_pasien FROM rawat_inap_dimas ORDER BY id_rawat")
     rawat_list = cursor.fetchall()
+<<<<<<< HEAD
     # ID otomatis
+=======
+    # Generate ID otomatis
+>>>>>>> 27ac00dccb201bf0a3a70a866a23b14206798e6d
     id_otomatis_transaksi = id_otomatis('T-', 'tarnsaksi_dimas', 'id_transaksi')
     cursor.close()
     conn.close()
@@ -266,6 +274,7 @@ def cetak():
     except Exception as e:
         return f"Gagal mencetak laporan: {e}"
 
+<<<<<<< HEAD
 @app.route('/cetak2')
 def cetak2():
     try:
@@ -314,5 +323,7 @@ def cetak2():
     except Exception as e:
         return f"Gagal mencetak laporan: {e}"
 
+=======
+>>>>>>> 27ac00dccb201bf0a3a70a866a23b14206798e6d
 if __name__ == '__main__':
     app.run(debug=True)
